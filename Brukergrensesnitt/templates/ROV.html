@@ -1,0 +1,451 @@
+{% extends "layout.html" %}
+{% block title %}{{title}} {% endblock %}
+{% block content1 %}
+
+<div class="col p-3 bg-dark text-white">
+    <h4>Kontroller</h4>
+<div class="conteiner">
+    <input type="radio" class="btn-check " name="state" id="init" autocomplete="off">
+    <label class="btn btn-outline-success btn-sm" for="init">På</label>
+
+    <input type="radio" class="btn-check btn-sm" name="state" id="stop" autocomplete="off"
+           checked>
+    <label class="btn btn-outline-danger btn-sm" for="stop">Av</label>
+</div>
+
+
+    <div class="conteiner">
+    <input type="radio" class="btn-check" name="manuell" id="manuell" autocomplete="off"
+           checked>
+    <label class="btn btn-outline-success btn-sm" for="manuell">Manuell</label>
+
+    <input type="radio" class="btn-check " name="manuell" id="auto" autocomplete="off">
+    <label class="btn btn-outline-warning btn-sm" for="auto">Auto</label>
+</div>
+
+
+<div class="conteiner">
+
+
+    <input type="radio" class="btn-check " name="modus" id="mode2" autocomplete="off">
+    <label class="btn btn-outline-success btn-sm" for="mode2">Manipulator</label>
+        <input type="radio" class="btn-check" name="modus" id="mode1" autocomplete="off"
+           checked>
+    <label class="btn btn-outline-warning btn-sm" for="mode1">MicroROV</label>
+</div>
+
+
+</div>
+<div class="col p-3 bg-dark text-white"><h4>Kamera</h4>
+    <div class="conteiner p-1 ">
+        <button name="ta_bilde_frontkamera" type="button" class="btn btn-outline-success btn-sm">Ta bilde
+            frontkamera</button>
+        <button name="ta_bilde_havbunnKamera" type="button" class="btn btn-outline-success btn-sm">Ta bilde
+            havbunnkamera</button>
+            </div>
+    <div class="conteiner p-1 ">
+
+        <button name="ta_bilde_mROV" type="button" class="btn btn-outline-success btn-sm">Ta bilde mROV</button>
+        <button name="slett_siste_bilde" type="button" class="btn btn-outline-danger btn-sm">Slett det siste
+            bildet</button>
+                    </div>
+
+        <div class="conteiner p-1 ">
+
+
+            <p>Resultatene kommer opp i egne faner</p>
+</div>
+
+</div>
+<div class="col p-3 bg-dark text-white"> <h4> Bildebehandling</h4>
+
+       <div class="conteiner p-1 ">
+
+        <button name="analyser_koralrev" type="button" class="btn btn-outline-success btn-sm">Korallrev</button>
+        <span>Siste bilde analyseres.</span></div>
+                <div class="conteiner p-1 ">
+
+                <button name="analyser_oversiktsbilde" type="button" class="btn btn-outline-success btn-sm">Havbunn
+                </button>
+            <span>Siste bilde analyseres.</span></div>
+
+
+                <div class="conteiner p-1 ">
+
+
+
+            <button name="fotomosaikk" type="button" class="btn btn-outline-success btn-sm">Fotomosaikk</button>
+        <span>Siste fem bilder analyseres.</span></div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block content2 %}
+
+<!--     ROV  ROV  ROV -->
+
+<div class="row mb-3">
+
+<div class="col p-3 bg-dark text-white"><h3>ROV</h3>
+    <p class="small">Tid: <span class="badge badge-secondary" id="tid1"> ------- </span></p>
+    <p class="small">Teller: <span class="badge badge-secondary" id="tel1"> ------- </span></p>
+    <p class="small">Strøm 1: <span  class="badge badge-secondary" id="strom2"> ------- </span></p>
+    <p class="small">Strøm 2: <span class="badge badge-secondary" id="strom1"> ------ </span></p>
+    <p class="small">Spenning 1: <span class="badge badge-secondary" id="spenn1"> ------- </span></p>
+    <p class="small">Spenning 2: <span class="badge badge-secondary" id="spenn2"> ------- </span></p>
+    <p class="small" >Orientering: <span class="badge badge-secondary" id="ori"> ------- </span></p>
+
+</div>
+<div class="col p-3 bg-dark text-white">
+    <h3></h3>
+        <div class="  pb-3">
+        <form>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="rov_btn_1">
+                <label class="custom-control-label" for="rov_btn_1">Manipultor</label>
+            </div>
+
+        </form>
+            <form>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="rov_btn_2">
+                <label class="custom-control-label" for="rov_btn_2">Lys</label>
+            </div>
+
+        </form>
+            <form>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="rov_btn_3">
+                <label class="custom-control-label" for="rov_btn_3">Dybde regulator</label>
+            </div>
+
+        </form>
+            <form>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="rov_btn_4">
+                <label class="custom-control-label" for="rov_btn_4">Vippe regulator</label>
+            </div>
+
+        </form>
+            <form>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="rov_btn_5">
+                <label class="custom-control-label" for="rov_btn_5">Helnings regulator</label>
+            </div>
+        </form>
+            </div>
+
+            <p class="small">Høyde: <span class="badge badge-secondary" id="hoyd"> ------- </span></p>
+        <p class="small">Dybde: <span class="badge badge-secondary" id="dybd"> ------- </span></p>
+        <p class="small">Temp ROV: <span class="badge badge-secondary" id="temp"> ------- </span></p>
+        <p class="small">Temp vann: <span class="badge badge-secondary" id="vanntemp"> ------- </span></p>
+
+    <!--<p>Akselerasjon: <span class="badge badge-secondary" id="aks"> ------- </span></p> -->
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+<!--    micro ROV micro ROC micro ROC -->
+<div class="row">
+
+<div class="col container p-3 bg-dark text-white"><h3>mROV</h3>
+<div class="pb-3">
+    <span class="badge badge-dark" id="mrov_pa">På</span>
+<span class="badge badge-dark" id="mrov_av">Av</span>
+</div>
+    <p class="small">Strøm 1: <span class="badge badge-secondary" id="mstrom1"> ------- </span></p>
+    <p class="small">Strøm 2: <span class="badge badge-secondary" id="mstrom2"> ------- </span></p>
+    <p class="small">Temp: <span class="badge badge-secondary" id="mtemp"> ------- </span></p>
+               <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="mrov_btn_1">
+                <label class="custom-control-label" for="mrov_btn_1">Lys</label>
+            </div>
+
+                   <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="mrov_btn_2">
+                <label class="custom-control-label" for="mrov_btn_2">Strømbryter</label>
+            </div>
+</div>
+
+<div class="col container p-3 bg-dark text-white "> <h4 class="text-center"> Motorer </h4>
+
+        <!-- Vertikal motor 1 -->
+        <h6 class="text-center"> Vertikal 1: </h6>
+
+        <div class="progress mx-auto" id="vert_1" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+        <!-- END -->
+
+            <!-- Vertikal motor 2 -->
+            <h6 class="text-center"> Vertikal 2: </h6>
+
+              <div class="progress mx-auto" id="vert_2" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>  <!-- END -->
+
+
+                <!-- Horisontal motor motor 1 -->
+            <h6 class="text-center"> Horisontal 1: </h6>
+
+              <div class="progress mx-auto" id="horis_1" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>  <!-- END -->
+
+    </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block content3 %}
+
+<!-- Motorer Motorer Motorer Motorer -->
+
+<div class=" row p-3 ml-2  bg-dark text-white">
+
+
+<div class="grid-container">
+
+  <div class="VHF">
+              <div class="progress mx-auto" id="VHF" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="VVF">
+              <div class="progress mx-auto" id="VVF" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="VVB">
+              <div class="progress mx-auto" id="VVB" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="VHB">
+              <div class="progress mx-auto" id="VHB" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="HHB">
+            <div class="progress mx-auto" id="HHB" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="HVB">
+            <div class="progress mx-auto" id="HVB" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="HVF">
+        <div class="progress mx-auto" id="HVF" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+  </div>
+  <div class="HHF">
+              <div class="progress mx-auto" id="HHF" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+
+  </div>
+</div>
+
+</div>
+
+
+<!--    Manipulator Manipulator Manipulator -->
+
+<div class="row  p-3 my-3 ml-2 bg-dark text-white">
+
+<div class="col"><h3>Manipulator</h3>  <span class="badge badge-dark" id="man_pa">På</span>
+<span class="badge badge-dark" id="man_av">Av</span>
+   </div>
+
+<div class="col container p-3 bg-dark text-white">
+</div>
+<div class="col container p-3 bg-dark text-white">
+        <div class="row">
+                    <div class="col"> Motor 1:</div>
+                                <div class="col">
+  <div class="progress mx-auto" id="M1" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="row">
+                    <div class="col"> Motor 2:</div>
+                                <div class="col">
+       <div class="progress mx-auto" id="M2" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+        </div>
+    </div>
+        <div class="row">
+                    <div class="col"> Motor 3:</div>
+                                <div class="col">
+       <div class="progress mx-auto" id="M3" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="row">
+                                <div class="col"> Motor 4:</div>
+                                <div class="col">
+       <div class="progress mx-auto" id="M4" data-value='0'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h7 font-weight-bold">76</div> <span>%</span>
+          </div>
+        </div>
+        </div>
+  </div>
+
+  </div>
+
+
+    </div>
+
+
+
+
+{% endblock %}
+
+ /// Slider -100 -> 100
+
+    <div class="slidecontainer">
+        <input type="range" min="-100" max="100" value="40" class="slider" id="myRange">
+        <p>Value: <span id="demo1"></span></p>
+        <p>Value via json: <span id="demo2"></span></p>
+    </div>

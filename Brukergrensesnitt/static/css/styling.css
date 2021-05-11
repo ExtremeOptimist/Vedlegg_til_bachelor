@@ -1,0 +1,102 @@
+
+p.small {
+  line-height: 1;
+}
+
+.progress {
+  width: 60px;
+  height: 60px;
+  background: none;
+  position: relative;
+}
+
+.progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress>span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.progress .progress-left {
+  left: 0;
+}
+
+.progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 6px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+.progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.progress .progress-right {
+  right: 0;
+}
+
+.progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.progress .progress-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.85fr 0.85fr 0.85fr 0.85fr 0.85fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "VHF . . . HHF"
+    ". VVF . HVF ."
+    ". . . . ."
+    ". VVB . HVB ."
+    "VHB . . . HHB";
+}
+
+.VHF { grid-area: VHF; }
+
+.VVF { grid-area: VVF; }
+
+.VVB { grid-area: VVB; }
+
+.VHB { grid-area: VHB; }
+
+.HHB { grid-area: HHB; }
+
+.HVB { grid-area: HVB; }
+
+.HVF { grid-area: HVF; }
+
+.HHF { grid-area: HHF; }

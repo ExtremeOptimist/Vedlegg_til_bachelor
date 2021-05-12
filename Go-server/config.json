@@ -1,0 +1,23 @@
+{
+    "server": {
+    "http_port": ":3510"
+  },
+  "streams": {
+    "front": {
+      "on_demand": true,
+      "url": "rtsp://192.168.3.119/1:554/user=admin&password=&channel=1&stream=0.sdp?"
+    },
+    "bunn": {
+      "on_demand": true,
+      "url": "rtsp://192.168.3.117/1:554/user=admin&password=&channel=1&stream=0.sdp?"
+    },
+    "micro": {
+      "on_demand": true,
+      "url": "rtsp://192.168.3.118/1:554/user=admin&password=&channel=1&stream=0.sdp?"
+    },
+    "extra": {
+      "on_demand": true,
+      "url": "rtsp://192.168.3.116/1:554/user=admin&password=&channel=1&stream=0.sdp?"
+    }
+  }
+}

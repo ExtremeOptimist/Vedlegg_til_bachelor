@@ -17,6 +17,6 @@ Starte brukergrensesnitt:
 Last ned og instaler python (inkluder pip):
 https://wiki.python.org/moin/BeginnersGuide/Download
 
-cd (sti hvor Vedlegg_til_bachelor er)
-pip install -r requierments.txt
-py run_brukergrensesnitt.py
+$ cd (sti hvor Vedlegg_til_bachelor er)
+$ pip install -r requierments.txt
+$ py run_brukergrensesnitt.py

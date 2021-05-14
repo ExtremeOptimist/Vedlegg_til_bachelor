@@ -23,4 +23,7 @@ https://wiki.python.org/moin/BeginnersGuide/Download
 cd (sti hvor Vedlegg_til_bachelor er)
 pip install -r requierments.txt
 py run_brukergrensesnitt.py
+
+usr: uissubsea
+pas: Ingeniorkunst1
 ```

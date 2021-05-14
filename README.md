@@ -24,6 +24,6 @@ cd (sti hvor Vedlegg_til_bachelor er)
 pip install -r requierments.txt
 py run_brukergrensesnitt.py
 
-usr: uissubsea
+usr: uissubsea2021
 pas: Ingeniorkunst1
 ```
